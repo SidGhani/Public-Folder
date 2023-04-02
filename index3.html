@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointment Request Form</title>
+    <style>
+      /* Form styles */
+      #appointment-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="submit"],
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      input:invalid,
+      textarea:invalid {
+        border-color: red;
+      }
+
+      /* Error message styles */
+      .error-message {
+        color: red;
+        margin-bottom: 10px;
+      }
+
+      /* Success message styles */
+      .success-message {
+        color: green;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="appointment-form">
+      <h2>Appointment Request Form</h2>
+
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="nonbinary">Non-binary</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="requested-date">Requested Date:</label>
+        <input type="date" id="requested-date" name="requested-date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="5"></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn">Submit</button>
+
+      <p class="error-message"></p>
+      <p class="success-message"></p>
+    </form>
+
+    <script>
+      const form = document.getElementById("appointment-form");
+      const nameInput = document.getElementById("name");
+      const ageInput = document.getElementById("age");
+      const genderInput = document.getElementById("gender");
+      const date
