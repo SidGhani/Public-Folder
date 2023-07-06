@@ -1,0 +1,22 @@
+// Define the doGet function, which will handle HTTP GET requests to your API
+function doGet() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+
+  var jsonData = [];
+  var headers = data[0];
+
+  for (var i = 1; i < data.length; i++) {
+    var row = data[i];
+    var rowData = {};
+
+    for (var j = 0; j < headers.length; j++) {
+      rowData[headers[j]] = row[j];
+    }
+
+    jsonData.push(rowData);
+  }
+
+  return ContentService.createTextOutput(JSON.stringify(jsonData))
+    .setMimeType(ContentService.MimeType.JSON);
+}
